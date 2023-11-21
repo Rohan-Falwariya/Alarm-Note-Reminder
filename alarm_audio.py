@@ -12,8 +12,7 @@ from plyer import notification
 
 smtp_server = "smtp.gmail.com"
 smtp_port = 465
-my_email = "rohanfalwariya2@gmail.com"
-    # my_email = "rohanfalwariya2@gmail.com"
+my_email = "your@xyz.com"
 
 class NotificationThread(threading.Thread):
     def __init__(self):
@@ -65,45 +64,14 @@ class Alarm:
                 server.quit()
                 break
 
-class EmailNotification:
-
-    # email_pass="fpza fnkc jfmy fdsx"
-    # smtp_server = "smtp.gmail.com"
-    # smtp_port = 465
-    # email_pass = "Rohan2050"  # Replace with your actual email password
-
-    @staticmethod
-    def send_email(alarm_hour: int, alarm_min: int, alarm_am: str, data: str, subject: str, to: str):
-        if alarm_am == "pm" and alarm_hour != 12:
-            alarm_hour += 12
-
-        while True:
-            now = datetime.datetime.now()
-            if alarm_hour == now.hour and alarm_min == now.minute:
-                msg = MIMEText(data)
-                msg['Subject'] = subject
-                msg['From'] = EmailNotification.my_email
-                msg['To'] = to
-
-                server = smtplib.SMTP_SSL(smtp_server, smtp_port)
-                server.login(my_email, email_pass)
-                server.send_message(msg)
-                server.quit()
-                # with smtplib.SMTP_SSL(EmailNotification.smtp_server, EmailNotification.smtp_port) as server:
-                #     server.login(EmailNotification.my_email, EmailNotification.email_pass)
-                #     server.send_message(msg)
-                break
 
 
-
-
-    def set_URL(self, alarm_hour: int, alarm_min: int, alarm_am: str, url:str):
-        if alarm_am == "pm" and alarm_hour != 12:
-            alarm_hour += 12
+    # def set_URL(self, alarm_hour: int, alarm_min: int, alarm_am: str, url:str):
+    #     if alarm_am == "pm" and alarm_hour != 12:
+    #         alarm_hour += 12
             
-        while True:
-            now = datetime.datetime.now()
-            if alarm_hour == now.hour and alarm_min == now.minute:     
-                # url= 'https://www.youtube.com/shorts/XoTl2b85o5U'  
-                webbrowser.open_new_tab(url) 
-                break
+    #     while True:
+    #         now = datetime.datetime.now()
+    #         if alarm_hour == now.hour and alarm_min == now.minute:     
+    #             webbrowser.open_new_tab(url) 
+    #             break
